@@ -9,4 +9,9 @@ RUN apt-get update && \
     apt-get install -y make g++ make qt5-qmake qt5-default openssh-client && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+RUN apt update && \
+    apt -y install libeigen3-dev libsdl2-dev libglew-dev curl && \
+    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
+    apt-get -y install git-lfs && \
+    git lfs install
 ENV LANG en_US.utf-8
